@@ -4,44 +4,102 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pórtico Lab</title>
+  <meta name="description" content="Creamos espacios únicos combinando estética, precisión y sistemas inteligentes. Pórtico Lab, diseño y fabricación digital." />
+  
+  <!-- Open Graph para compartir en redes -->
+  <meta property="og:title" content="Pórtico Lab" />
+  <meta property="og:description" content="Espacios únicos, con elegancia, precisión y fabricación digital." />
+  <meta property="og:image" content="https://porticolab.com/og-image.jpg" />
+  <meta property="og:url" content="https://porticolab.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Estilos básicos -->
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #0f0f0f;
-      color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #222;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      padding: 2rem;
     }
 
     h1 {
       font-size: 3rem;
-      letter-spacing: 2px;
       margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 1.2rem;
-      color: #cccccc;
-      max-width: 500px;
-      text-align: center;
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .social {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .social a {
+      color: #222;
+      text-decoration: none;
+      font-size: 1.5rem;
     }
 
     footer {
-      position: absolute;
-      bottom: 1rem;
-      font-size: 0.8rem;
-      color: #666;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #444;
     }
   </style>
+
+  <!-- Icons (fontawesome) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>PÓRTICO LAB</h1>
-  <p>Diseño. Precisión. Fabricación digital.<br>Espacios y objetos únicos para un mundo moderno.</p>
+  <header>
+    <h1>PÓRTICO LAB</h1>
+    <p>Espacios únicos, para personas que valoran la estética, la elegancia y la precisión. Diseño, fabricación digital y sostenibilidad.</p>
+    <a class="button" href="mailto:contacto.porticolab@gmail.com">Escríbenos</a>
+  </header>
 
-  <footer>&copy; 2025 Pórtico Lab. Todos los derechos reservados.</footer>
+  <div class="social">
+    <a href="https://www.instagram.com/porticolab" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/porticolab" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:contacto.porticolab@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <footer>
+    &copy; 2025 Pórtico Lab. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
