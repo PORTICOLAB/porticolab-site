@@ -90,5 +90,50 @@
     <p>&copy; 2025 PÓRTICO LAB — Todos los derechos reservados</p>
   </footer>
 
+<!-- Reloj actual -->
+<div id="clock" style="font-size: 1.5rem; margin-bottom: 10px; font-family: monospace;"></div>
+
+<!-- Cuenta regresiva -->
+<div id="countdown" style="font-size: 2rem; font-weight: bold; font-family: monospace;"></div>
+
+<script>
+  // 🕒 Función para mostrar la hora actual
+  function updateClock() {
+    const now = new Date();
+    let hours = now.getHours().toString().padStart(2, '0');
+    let minutes = now.getMinutes().toString().padStart(2, '0');
+    let seconds = now.getSeconds().toString().padStart(2, '0');
+    document.getElementById("clock").innerText = `Hora actual: ${hours}:${minutes}:${seconds}`;
+  }
+
+  setInterval(updateClock, 1000); // Actualiza cada segundo
+  updateClock(); // Llama una vez para que no haya retraso
+
+  // ⏳ Cuenta regresiva hasta la fecha de cierre (año, mes (0-11), día, hora, minuto, segundo)
+  const deadline = new Date(2025, 6, 31, 20, 0, 0).getTime(); // 31 julio 2025, 8:00 PM
+
+  const countdown = document.getElementById("countdown");
+
+  const x = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = deadline - now;
+
+    if (distance <= 0) {
+      clearInterval(x);
+      countdown.innerHTML = "¡La subasta ha terminado!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `⏳ Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+</script>
+
+
+  
 </body>
 </html>
