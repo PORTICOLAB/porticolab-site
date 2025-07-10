@@ -1,139 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PÓRTICO LAB</title>
+  <meta charset="UTF-8">
+  <title>PÓRTICO_LAB</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f5f5f5;
-      color: #111;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #111;
+      background-color: #000;
       color: #fff;
-      padding: 60px 20px;
-      text-align: center;
+      font-family: 'Helvetica Neue', sans-serif;
     }
 
-    header h1 {
-      font-size: 48px;
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      border-right: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
       letter-spacing: 2px;
+      border-bottom: 1px solid #FF6666;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      width: fit-content;
     }
 
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #ccc;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .buttons {
-      margin-top: 30px;
-    }
-
-    .buttons a {
+    .menu a {
       text-decoration: none;
-      color: white;
-      background-color: #111;
-      padding: 12px 20px;
-      margin-right: 10px;
-      border-radius: 4px;
-      font-size: 14px;
+      color: #fff;
+      font-size: 18px;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+      width: fit-content;
     }
 
-    footer {
-      background-color: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
+    .menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background-color: #FF6666;
+      transition: width 0.3s;
+    }
+
+    .menu a:hover {
+      transform: translateX(8px);
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 600px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .logo {
+        width: 100%;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>PÓRTICO LAB</h1>
-    <p>Diseño, fabricación y precisión arquitectónica para una nueva generación</p>
-    <div class="buttons">
-      <a href="https://www.instagram.com/portico.lab/" target="_blank">Instagram</a>
-      <a href="https://www.linkedin.com/company/p%C3%B3rtico-lab" target="_blank">LinkedIn</a>
-    </div>
-  </header>
-
-  <section>
-    <h2>¿Qué hacemos?</h2>
-    <p>Diseñamos y fabricamos mobiliario, prototipos y estructuras inspiradas en procesos digitales, adaptados a una visión estética y técnica contemporánea.</p>
-  </section>
-
-  <section>
-    <h2>Productos destacados</h2>
-    <p>Muy pronto: la silla S_ORI_01, un diseño ensamblable para usuarios creativos.</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 PÓRTICO LAB — Todos los derechos reservados</p>
-  </footer>
-
-<!-- Reloj actual -->
-<div id="clock" style="font-size: 1.5rem; margin-bottom: 10px; font-family: monospace;"></div>
-
-<!-- Cuenta regresiva -->
-<div id="countdown" style="font-size: 2rem; font-weight: bold; font-family: monospace;"></div>
-
-<script>
-  // 🕒 Función para mostrar la hora actual
-  function updateClock() {
-    const now = new Date();
-    let hours = now.getHours().toString().padStart(2, '0');
-    let minutes = now.getMinutes().toString().padStart(2, '0');
-    let seconds = now.getSeconds().toString().padStart(2, '0');
-    document.getElementById("clock").innerText = `Hora actual: ${hours}:${minutes}:${seconds}`;
-  }
-
-  setInterval(updateClock, 1000); // Actualiza cada segundo
-  updateClock(); // Llama una vez para que no haya retraso
-
-  // ⏳ Cuenta regresiva hasta la fecha de cierre (año, mes (0-11), día, hora, minuto, segundo)
-  const deadline = new Date(2025, 6, 31, 20, 0, 0).getTime(); // 31 julio 2025, 8:00 PM
-
-  const countdown = document.getElementById("countdown");
-
-  const x = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = deadline - now;
-
-    if (distance <= 0) {
-      clearInterval(x);
-      countdown.innerHTML = "¡La subasta ha terminado!";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdown.innerHTML = `⏳ Faltan: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-  }, 1000);
-</script>
-
-
-  
-</body>
-</html>
+  <div class="sidebar
